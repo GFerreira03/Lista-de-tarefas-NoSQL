@@ -1,0 +1,72 @@
+ body{
+     margin: 0;
+     height: 100vh;
+     width: 100vw;
+     background-color: #2a2b2b;
+     font-family: Helvetica;
+     justify-content: center;
+     align-items: center;
+     display: flex;
+ }
+
+ .card{
+    background-color: #2a2b2b;
+    width: 430px;
+    height: 350px;
+    box-shadow: -13px -13px 20px #323333, 
+                 13px 13px 20px #1c1d1d;
+    border-radius: 40px;
+    padding: 60px 35px 35px 35px;
+    align-items: center;
+ }
+
+ .title{
+    text-align: center;
+    color: #fc4d84;
+    font-size: 40px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+ }
+
+ .fields{
+     width: 100%;
+     padding: 35px 5px 5px 5px;
+ }
+
+ .fields input{
+     border: none;
+     outline: none;
+     background: none;
+     width: 90%;
+     font-size: 18px;
+     color: white;
+     padding: 17px 10px 17px 5px;
+ }
+
+ .username, .password{
+     text-align: center;
+     margin-bottom: 30px;
+     border-radius: 25px;
+     box-shadow: inset 8px 8px 8px #1c1d1d,
+                 inset -8px -8px 8px #323333;
+ }
+
+
+ .login-button{
+     outline: none;
+     border: none;
+     cursor: pointer;
+     width: 100%;
+     height: 50px;
+     border-radius: 30px;
+     font-size: 20px;
+     font-weight: 700;
+     background: #fc4d84;
+     color: white;
+     text-align: center;
+ }
+
+ .login-button:active{
+    box-shadow: inset 8px 8px 8px #b93961,
+    inset -8px -8px 8px #fc6c99;
+ }
