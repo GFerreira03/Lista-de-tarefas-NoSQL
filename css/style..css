@@ -28,12 +28,12 @@
     margin-bottom: 1px;
  }
 
- .fields{
+ .login-fields{
      width: 100%;
-     padding: 35px 5px 5px 5px;
+     padding-top: 30px;
  }
 
- .fields input{
+ .login-fields input{
      border: none;
      outline: none;
      background: none;
