@@ -8,7 +8,7 @@ header .navbar {
 	background: #fc4d84;
 	border-radius: 0;
 	border-bottom: 2px solid rgba(255,255,255); 
-	box-shadow: 0 1px 15px rgba(255,255,255);
+
 }
 header .navbar-default .navbar-nav>li>a {
 	margin: 15px 3px;
@@ -90,11 +90,73 @@ header .navbar-brand img {
 	left: 0;
 	right: 0;
 	margin: auto;
-	width: 600px;
-	height: 360px;
-	padding: 15px;
-	display: nome;
-	border: solid 1px #2a2b2b;
-	background-color: #fff;
-	color: #000000;
+	margin-top: 5%;
+	background-color: #2a2b2b;
+	color: white;
+	width: 330px;
+    height: 550px;
+    box-shadow: -13px -13px 20px #323333, 
+                 13px 13px 20px #1c1d1d;
+    border-radius: 40px;
+    padding: 30px 35px 35px 35px;
+	display: none;
+}
+
+.new-task-fields input, textarea{
+	
+	border: none;
+	outline: none;
+	background: none;
+	margin-bottom: 15px;
+	border-radius: 25px;
+	box-shadow: inset 8px 8px 8px #1c1d1d,
+				inset -8px -8px 8px #323333;
+}
+
+.description-input{
+	padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+	padding-left: 15px;
+	margin-bottom: 15px;
+	resize: none;
+}
+.title-input{
+	padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 15px;
+	width: 260px;
+	height: 35px;
+}
+
+.date-input{
+	padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.popup button{
+	outline: none;
+	border: none;
+	cursor: pointer;
+    width: 92px;
+    height: 32px;
+	border-radius: 30px;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 15px;
+	font-weight: 700;
+	background: #fc4d84;
+	color: white;
+}
+
+.new-task-btn:active{
+    box-shadow: inset 8px 8px 8px #b93961,
+    inset -8px -8px 8px #fc6c99;
+}
+
+.popup h2 {
+	margin-top: 0;
+	color:#fc4d84;
 }

@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const user = require('./user-model')
+
+//Schemas
+const user = require('./user-model');
+const task = require('./task-model');
+
 //Inicializando o express
 const app = express();
 app.use('/static', express.static(__dirname + '/public'));
@@ -13,7 +17,6 @@ app.use(express.urlencoded({ extended: false }))
 var porta = 8000;
 var url = "mongodb+srv://genericUser:123456789abc@cluster0-eian9.gcp.mongodb.net/listadetarefas?retryWrites=true&w=majority"
 
-var col;
 //Conexão
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then(client => {
     console.log('Conectado ao banco de dados')
@@ -33,13 +36,13 @@ app.post('/logar', (req, res) => {
         if (usuario != null){
             query.exec((err, usuario) => {
                 if(err) return console.log(err);
-                console.log('Logado')
+                res.render('task.ejs')
             })
         } else {
             res.render('index.ejs')
         }
     })
-  })
+})
 
 app.get('/', (req, res) => {
     res.render('index.ejs')
