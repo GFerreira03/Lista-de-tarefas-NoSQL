@@ -94,7 +94,7 @@ header .navbar-brand img {
 	background-color: #2a2b2b;
 	color: white;
 	width: 330px;
-    height: 550px;
+    height: 50%;
     box-shadow: -13px -13px 20px #323333, 
                  13px 13px 20px #1c1d1d;
     border-radius: 40px;
@@ -159,4 +159,26 @@ header .navbar-brand img {
 .popup h2 {
 	margin-top: 0;
 	color:#fc4d84;
+}
+
+.popup select{
+	height: 28px;
+    padding-left: 13px;
+	border: none;
+	outline: none;
+	background: none;
+	margin-bottom: 15px;
+	border-radius: 25px;
+	box-shadow: inset 8px 8px 8px #1c1d1d,
+				inset -8px -8px 8px #323333;
+}
+
+.popup select *{
+	background-color: #2a2b2b;
+	outline: none;
+}
+
+.popup p{
+	padding-left: 10px;
+    margin-bottom: 3px;
 }
