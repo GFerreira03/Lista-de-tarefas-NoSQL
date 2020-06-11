@@ -31,47 +31,72 @@
                 </nav>   
             </header>
         </div>
-        <div class = "popup">
-            <div class = "popup-content">
-                <h2>Nova tarefa</h2>
-                <div class="new-task-fields">
-                    <div>
-                        <p>Título:</p>
-                        <input type="text" name="titulo" class="title-input">
-                    </div>
-                    <div>
-                        <p>Descrição: </p>
-                        <textarea name="descricao" class="description-input" cols="30" rows="10"></textarea>
-                    </div>
-                    <div>
-                        <p>Categoria</p>
-                        <select name="categoria" class="category-select">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                    </div>
-                    <div>
-                        <p>Data de conclusão:</p>
-                        <input type="date" name="dataConclusao" class="date-input" id="">
-                    </div>
+
+        <!--Popup de nova tarefa-->
+        <div class="popup">
+            <div class = "new-task-popup">
+                <div class = "popup-content">
+                    <h2>Nova tarefa</h2>
+                    <div class="new-task-fields">
+                        <form action="/novaTarefa" method="POST">                    
+                            <div>
+                                <p>Título:</p>
+                                <input type="text" name="titulo" class="title-input">
+                            </div>
+                            <div>
+                                <p>Descrição: </p>
+                                <textarea name="descricao" class="description-input" cols="30" rows="10"></textarea>
+                            </div>
+                            <div>
+                                <p>Categoria</p>
+                                <select name="categoria" class="category-select" id="categorySelector">
+                                    <!--Opções devem ser inseridas dinamicamente-->
+                                </select>
+                                <button type="button" class="new-category-btn" id="newCategoryBtn">+</button>
+                            </div>
+                            <div>
+                                <p>Data de conclusão:</p>
+                                <input type="date" name="dataConclusao" class="date-input" id="">
+                            </div>
+                        </div>
+                        <button type="submit" class="new-task-btn" id="createBtn">Criar</button>
+                        <button type="button" class="task-cancel-btn" id="cancelBtn">Cancelar</button>
+                        </form>
                 </div>
-                <button type="submit" class="new-task-btn" id="createbtn">Criar</button>
-                <button type="button" class="task-cancel-btn" id="cancelbtn">Cancelar</button>
             </div>
         </div>
 
-        <input type="button" value="+" class="insert-btn" id="insertbtn">
+        <!--Popup de nova categoria-->
+        <div class="popup">
+            <div class="new-category-popup">
+                <form action="/novaCategoria" method="POST">
+                    <label for="nova categoria">Nova categoria:</label>
+                    <input type="text" name="novaCategoria" class="category-input">
+                    <button type="submit" class="insert-category-btn">Confirmar</button>
+                    <button type="button" class="cancel-category-btn" id="cancelCategoryBtn">Cancelar</button>
+                </form>
+            </div>
+        </div>
+        <!--Fim do popup-->
+
+        <input type="button" value="+" class="insert-btn" id="insertBtn">
         
 
         <script>
-            document.getElementById("insertbtn").addEventListener("click", function(){
-                document.querySelector(".popup").style.display = "flex";
+            document.getElementById("insertBtn").addEventListener("click", function(){
+                document.querySelector(".new-task-popup").style.display = "flex";
             })
 
-            document.getElementById("cancelbtn").addEventListener("click", function(){
-                document.querySelector(".popup").style.display = "none";
+            document.getElementById("cancelBtn").addEventListener("click", function(){
+                document.querySelector(".new-task-popup").style.display = "none";
+            })
+
+            document.getElementById("newCategoryBtn").addEventListener("click", function(){
+                document.querySelector(".new-category-popup").style.display = "flex";
+            })
+
+            document.getElementById("cancelCategoryBtn").addEventListener("click", function(){
+                document.querySelector(".new-category-popup").style.display = "none";
             })
         </script>
 
