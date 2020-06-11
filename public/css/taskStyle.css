@@ -1,0 +1,100 @@
+body{
+    background-color: #2a2b2b;
+    color: rgb(255, 255, 255);
+    font-family: Helvetica;
+}
+header .navbar { 
+	margin: 0;
+	background: #fc4d84;
+	border-radius: 0;
+	border-bottom: 2px solid rgba(255,255,255); 
+	box-shadow: 0 1px 15px rgba(255,255,255);
+}
+header .navbar-default .navbar-nav>li>a {
+	margin: 15px 3px;
+	padding-top: 6px;
+	color: #fff;
+	padding-bottom: 6px;
+	border-radius: 2px;
+}
+
+header .navbar-default .navbar-nav>li>a:hover, 
+header .navbar-default .navbar-nav>li>a:focus,
+header .navbar-default .navbar-nav>li.open>a:hover, 
+header .navbar-default .navbar-nav>li.open>a:focus {
+	background: #fff;
+}
+
+header .navbar-nav .dropdown-menu {
+	top: 57px;
+	border-radius: 3px;
+}
+header .navbar-nav .dropdown-menu:after, 
+header .navbar-nav .dropdown-menu:before {
+	bottom: 100%;
+	right: 20px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+header .navbar-nav .dropdown-menu:after {
+	border-color: #fff;
+	border-bottom-color: #fff;
+	border-width: 7px;
+}
+
+header .navbar-nav .dropdown-menu:before {
+	border-color: #fff;
+	border-bottom-color: #fc4d84;
+	border-width: 8px;
+	margin-right: -1px;
+}
+header .navbar-brand {
+	padding: 0;
+	height: auto;
+}
+header .navbar-brand img {
+	position: relative;
+	top: 5px;
+	max-width: 165px;
+}
+/* Insert Button */
+.insert-btn{
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
+    border: 0;
+    border-radius: 50%;
+    margin: 0;
+    font-weight: 1.05rem;
+    cursor: pointer;
+}
+.insert-btn:hover{
+    background-color: #fff;
+}
+.insert-btn:active{
+    background-color: #000000;
+    color: #fff;
+}
+.popup{
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 600px;
+	height: 360px;
+	padding: 15px;
+	display: nome;
+	border: solid 1px #2a2b2b;
+	background-color: #fff;
+	color: #000000;
+}

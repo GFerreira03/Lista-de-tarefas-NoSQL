@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Lista de Atividades</title>
+        <link rel="stylesheet" href="static/css/taskStyle.css">
+        <link rel="stylesheet" href="static/css/bootstrap.css">
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    </head>
+    <body style="background-color: #2a2b2b;">
+        <div class="wrapper">
+            <header>
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container">                        
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#"><img class="img-responsive" src="static/img/icon.png" alt="Logo" height = "40%" width= "30%"></a>
+                        </div>
+
+                        <!-- configuração do menu -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                               <li><a href="#">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>   
+            </header>
+        </div>
+        <input type="button" value="+" class="insert-btn" id="insertbtn" onclick="main();">
+    </body>
+</html>
