@@ -188,6 +188,7 @@ header .navbar-brand img {
 
 .popup select{
 	height: 28px;
+	width: 160px;
     padding-left: 13px;
 	border: none;
 	outline: none;

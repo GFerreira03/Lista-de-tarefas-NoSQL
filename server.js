@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 //Schemas
 const user = require('./user-model');
 const task = require('./task-model');
+const categoryModel = require('./category-model');
 
 //Inicializando o express
 const app = express();
@@ -53,7 +54,7 @@ app.post('/novaTarefa', (req, res) => {
         titulo: req.body.titulo,
         descricao: req.body.descricao,
         dataIni: new Date(),
-        dataFim: req.res.dataConclusao,
+        dataFim: new Date(req.body.dataFim),
         conclusao: 'Ativa'
     }
 
@@ -69,7 +70,7 @@ app.post('/novaCategoria', (req, res) =>{
         _categoria: req.body.novaCategoria
     }
 
-    db.collection('categorias').insertOne(categoria, (err, result) => {
+    categoryModel.collection.insertOne(categoria, (err, result) => {
         if (err) console.log(err)
     })
 })
@@ -77,3 +78,5 @@ app.post('/novaCategoria', (req, res) =>{
 app.get('/', (req, res) => {
     res.render('index.ejs')
 })
+
+module.exports.usuarioLogado = usuarioLogado;
