@@ -1,7 +1,6 @@
 const categoryModel = require('./category-model');
 const usuarioLogado = require('server.js')
 
-function buildSelect(){
     var slct = document.getElementById("categorySelector")
     var optn = document.createElement("option")
 
@@ -15,9 +14,8 @@ function buildSelect(){
                 for(var i = 0; i < tarefas.length(); i++){
                     optn.text = tarefas[0]
                     optn.value = tarefas[0]
-                    slct.add(optn);
+                    slct.appendChild(optn)
                 }
             })
         }
     })
-}

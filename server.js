@@ -7,6 +7,7 @@ const user = require('./user-model');
 const task = require('./task-model');
 const categoryModel = require('./category-model');
 
+
 //Inicializando o express
 const app = express();
 app.use('/static', express.static(__dirname + '/public'));
@@ -61,6 +62,8 @@ app.post('/novaTarefa', (req, res) => {
     task.collection.insertOne(tarefa, (err, result) => {
         if (err) console.log(err);
     })
+
+    res.render('task.ejs', {usuarioTopo: usuarioLogado.nome + " " + usuarioLogado.sobrenome + " - "+ usuarioLogado.nomeUsuario})
 })
 
 //Nova categoria

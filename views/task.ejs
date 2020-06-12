@@ -88,6 +88,26 @@
         <script>
             document.getElementById("insertBtn").addEventListener("click", function(){
                 document.querySelector(".new-task-popup").style.display = "flex";
+
+           /* alert('Davai')
+            var slct = document.getElementById("categorySelector")
+            var optn = document.createElement("option")
+
+
+            var query = categoryModel.find({nomeUsuario: usuarioLogado.nomeUsuario}, {_id: 0, nomeUsuario: 0}, (err, tarefas) => {
+
+            if (err) console.log(err)
+            if (tarefas != null){
+                query.exec((err, tarefas) => {
+                    if(err) console.log(err)
+                    for(var i = 0; i < tarefas.length(); i++){
+                        optn.text = tarefas[0]
+                        optn.value = tarefas[0]
+                        slct.appendChild(optn)
+                    }
+                })
+            }
+        })*/
             })
 
             document.getElementById("cancelBtn").addEventListener("click", function(){
@@ -101,9 +121,6 @@
             document.getElementById("cancelCategoryBtn").addEventListener("click", function(){
                 document.querySelector(".new-category-popup").style.display = "none";
             })
-
         </script>
-
-    <script type="text/javascript" src="/static/js/buildDropbox.js"></script>
     </body>
 </html>
