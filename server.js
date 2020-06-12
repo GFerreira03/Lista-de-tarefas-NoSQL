@@ -18,7 +18,7 @@ var porta = 8000;
 var url = "mongodb+srv://genericUser:123456789abc@cluster0-eian9.gcp.mongodb.net/listadetarefas?retryWrites=true&w=majority"
 
 //Conexão
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then(client => {
+var db = mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then(client => {
     console.log('Conectado ao banco de dados')
 }).catch((err) => {
     console.log('Erro ao conectar. Erro: ' + err)
@@ -30,13 +30,15 @@ app.listen(porta, () =>
 })
 
 //Login
+var usuarioLogado;
 app.post('/logar', (req, res) => {
     var query = user.findOne({$and:[ {nomeUsuario: req.body.usuario}, {senha: req.body.senha} ] }, (err, usuario) =>{
         if (err) console.log(err);
         if (usuario != null){
             query.exec((err, usuario) => {
                 if(err) return console.log(err);
-                res.render('task.ejs')
+                usuarioLogado = usuario
+                res.render('task.ejs', {usuarioTopo: usuarioLogado.nome + " " + usuarioLogado.sobrenome + " - "+ usuarioLogado.nomeUsuario})
             })
         } else {
             res.render('index.ejs')
@@ -44,7 +46,34 @@ app.post('/logar', (req, res) => {
     })
 })
 
+//Nova tarefa
+app.post('/novaTarefa', (req, res) => {
+    var tarefa = {
+        nomeUsuario: usuarioLogado.nomeUsuario,
+        titulo: req.body.titulo,
+        descricao: req.body.descricao,
+        dataIni: new Date(),
+        dataFim: req.res.dataConclusao,
+        conclusao: 'Ativa'
+    }
+
+    task.collection.insertOne(tarefa, (err, result) => {
+        if (err) console.log(err);
+    })
+})
+
+//Nova categoria
+app.post('/novaCategoria', (req, res) =>{
+        var categoria = {
+        nomeUsuario: usuarioLogado.nomeUsuario,
+        _categoria: req.body.novaCategoria
+    }
+
+    db.collection('categorias').insertOne(categoria, (err, result) => {
+        if (err) console.log(err)
+    })
+})
+
 app.get('/', (req, res) => {
     res.render('index.ejs')
 })
-
