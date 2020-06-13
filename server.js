@@ -55,9 +55,9 @@ app.post('/logar', (req, res) => {
                         } else {
                             for (i=0; i<categorias.length; i++) {
                                 listaCategorias[i] = categorias[i]._categoria;
-                                console.log(listaCategorias[i])
+
                                 if((i + 1) == categorias.length){
-                                    console.log(listaCategorias[1])
+                                   
                                     res.render('task.ejs', { usuarioTopo: usuarioLogado, listaCategorias: listaCategorias, categoriasQnt: i+1 })
                                 }
                             }
