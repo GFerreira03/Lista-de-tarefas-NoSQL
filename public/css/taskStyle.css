@@ -86,7 +86,7 @@ header .navbar-brand img {
 
 .new-task-popup, .new-category-popup{
 	display: none;
-	position: fixed;
+	position: relative;
 	top: 0;
 	bottom: 0;
 	left: 0;
