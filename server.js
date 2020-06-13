@@ -20,7 +20,7 @@ var porta = 8000;
 var url = "mongodb+srv://genericUser:123456789abc@cluster0-eian9.gcp.mongodb.net/listadetarefas?retryWrites=true&w=majority"
 
 //Conexão
-var db = mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then(client => {
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}).then(client => {
     console.log('Conectado ao banco de dados')
 }).catch((err) => {
     console.log('Erro ao conectar. Erro: ' + err)
@@ -32,19 +32,42 @@ app.listen(porta, () =>
 })
 
 //Login
-var usuarioLogado;
+var usuarioLogado = {};
+var listaCategorias = {};
 app.post('/logar', (req, res) => {
-    var query = user.findOne({$and:[ {nomeUsuario: req.body.usuario}, {senha: req.body.senha} ] }, (err, usuario) =>{
-        if (err) console.log(err);
-        if (usuario != null){
-            query.exec((err, usuario) => {
-                if(err) return console.log(err);
-                usuarioLogado = usuario
-                res.render('task.ejs', {usuarioTopo: usuarioLogado.nome + " " + usuarioLogado.sobrenome + " - "+ usuarioLogado.nomeUsuario})
-            })
-        } else {
-            res.render('index.ejs')
+        user.findOne(
+        {$and:[
+            {nomeUsuario: req.body.usuario}, 
+            {senha: req.body.senha}]}, 
+            (err, usuario) => {
+                if (err) console.log(err);
+                if (usuario == null){
+                    res.render('index.ejs')
+                } else {  
+                    if(err) return console.log(err);
+                    usuarioLogado = usuario 
+                        //Usuário salvo
+                    categoryModel.find({nomeUsuario: usuarioLogado.nomeUsuario}, (err, categorias) => {
+                        if (err) console.log(err);
+                        if (categorias == null){
+                            listaCategorias = null;
+                            res.render('task.ejs', { usuarioTopo: usuarioLogado, listaCategorias: listaCategorias })
+                        } else {
+                            for (i=0; i<categorias.length; i++) {
+                                listaCategorias[i] = categorias[i]._categoria;
+                                console.log(listaCategorias[i])
+                                if((i + 1) == categorias.length){
+                                    console.log(listaCategorias[1])
+                                    res.render('task.ejs', { usuarioTopo: usuarioLogado, listaCategorias: listaCategorias, categoriasQnt: i+1 })
+                                }
+                            }
+                            
+                        }
+                    })
+                    
+                
         }
+
     })
 })
 
@@ -79,7 +102,6 @@ app.post('/novaCategoria', (req, res) =>{
 })
 
 app.get('/', (req, res) => {
+    
     res.render('index.ejs')
 })
-
-module.exports.usuarioLogado = usuarioLogado;

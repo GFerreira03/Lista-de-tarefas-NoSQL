@@ -26,13 +26,34 @@
                         <!-- configuração do menu -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#" id="nomeDeUsuario"> <%= usuarioTopo %> </a></li>
+                                <li><a href="#" id="nomeDeUsuario"> <%= usuarioTopo.nome %> <%= usuarioTopo.sobrenome %> - <%= usuarioTopo.nomeUsuario %> </a></li>
                                <li><a href="#">Logout</a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>   
             </header>
+        </div>
+        <!--Lista de tarefas-->
+        <div>
+            <div class="card-tarefa">
+                <div class="titulo-tarefa"><h3>titulo</h3></div>
+                <div class="descricao-tarefa">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                <div class="botoes-tarefa">
+                    <button>+</button>
+                    <button>+</button>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="card-tarefa">
+                <div class="titulo-tarefa"><h3>titulo</h3></div>
+                <div class="descricao-tarefa">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                <div class="botoes-tarefa">
+                    <button>+</button>
+                    <button>+</button>
+                    <button>+</button>
+                </div>
+            </div>
         </div>
 
         <!--Popup de nova tarefa-->
@@ -45,16 +66,20 @@
                             <div>
                                 <p>Título:</p>
                                 <input type="text" name="titulo" class="title-input">
+
                             </div>
                             <div>
                                 <p>Descrição: </p>
                                 <textarea name="descricao" class="description-input" cols="30" rows="10"></textarea>
+                                
                             </div>
                             <div>
                                 <p>Categoria</p>
                                 <select name="categoria" class="category-select" id="categorySelector">
-                                    <option value="">Categoria</option>
-                                </select>
+                                    <% for(var i = 0; i < categoriasQnt; i++) { %>
+                                            <option value="<%= listaCategorias[i] %>"> <%= listaCategorias[i] %></option>
+                                    <% } %>
+                                </select>   
                                 <button type="button" class="new-category-btn" id="newCategoryBtn">+</button>
                             </div>
                             <div>
@@ -75,7 +100,7 @@
                 <form action="/novaCategoria" method="POST">
                     <label for="nova categoria">Nova categoria:</label>
                     <input type="text" name="novaCategoria" class="category-input">
-                    <button type="submit" class="insert-category-btn" id="cancelCategoryBtn">Confirmar</button>
+                    <button type="submit" class="insert-category-btn" id="confirmCategoryBtn">Confirmar</button>
                     <button type="button" class="cancel-category-btn" id="cancelCategoryBtn">Cancelar</button>
                 </form>
             </div>
@@ -119,6 +144,9 @@
             })
 
             document.getElementById("cancelCategoryBtn").addEventListener("click", function(){
+                document.querySelector(".new-category-popup").style.display = "none";
+            })
+            document.getElementById("confirmCategoryBtn").addEventListener("click", function(){
                 document.querySelector(".new-category-popup").style.display = "none";
             })
         </script>

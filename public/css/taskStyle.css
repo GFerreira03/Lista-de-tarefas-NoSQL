@@ -86,7 +86,7 @@ header .navbar-brand img {
 
 .new-task-popup, .new-category-popup{
 	display: none;
-	position: relative;
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -96,7 +96,7 @@ header .navbar-brand img {
 	background-color: #2a2b2b;
 	color: white;
 	width: 330px;
-    height: 50%;
+    height: 65%;
     box-shadow: -13px -13px 20px #323333, 
                  13px 13px 20px #1c1d1d;
     border-radius: 40px;
@@ -217,4 +217,36 @@ header .navbar-brand img {
 	padding-bottom: 3px;
 	padding-right: 2px;
 	margin-left: 15px;
+}
+
+.card-tarefa{
+	display: inline-block;
+	border-radius: 30px;
+	padding: 20px;
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 300px;
+	box-shadow: inset 8px 8px 8px #1c1d1d,
+				inset -8px -8px 8px #323333;
+}
+
+.titulo-tarefa{
+	color: #fc4d84;
+	
+}
+
+.descricao-tarefa{
+	display: inline-block;
+	color: white;
+	margin-bottom: 10px;
+	word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+	white-space: pre-wrap;
+	width: 100%;
+}
+
+.botoes-tarefa{
+
+	display: inline-block;
+	display: block;
 }
