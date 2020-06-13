@@ -26,8 +26,10 @@
                         <!-- configuração do menu -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#" id="nomeDeUsuario"> <%= usuarioTopo.nome %> <%= usuarioTopo.sobrenome %> - <%= usuarioTopo.nomeUsuario %> </a></li>
-                               <li><a href="#">Logout</a></li>
+                                <li><a id="nomeDeUsuario"> <%= usuarioTopo %> </a></li>
+                                <form action="/deslogar" method="POST">
+                                    <li><button type="submit">Logout</button></li>
+                                </form>
                             </ul>
                         </div>
                     </div>

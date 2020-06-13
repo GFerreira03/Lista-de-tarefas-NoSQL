@@ -71,6 +71,14 @@ app.post('/logar', (req, res) => {
     })
 })
 
+//Logout
+app.post('/deslogar',(req,res)=>{
+    if (usuarioLogado = true){
+        usuario = null,
+        res.render('index.ejs')
+    }
+})
+
 //Nova tarefa
 app.post('/novaTarefa', (req, res) => {
     var tarefa = {
