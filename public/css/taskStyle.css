@@ -250,3 +250,7 @@ header .navbar-brand img {
 	display: inline-block;
 	display: block;
 }
+
+.tarefa-container{
+	position: fixed;
+}
