@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view-engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
+app.engine('html', require('ejs').renderFile);
 //Estabelecendo parâmetros pra conectar
 var porta = 8000;
 var url = "mongodb+srv://genericUser:123456789abc@cluster0-eian9.gcp.mongodb.net/listadetarefas?retryWrites=true&w=majority"
@@ -75,7 +76,7 @@ app.post('/logar', (req, res) => {
 //Logout
 app.post('/deslogar', (req, res) => {
     if (usuarioLogado = true) {
-        res.render('index.ejs')
+        res.sendfile('views/index.html')
     }
 })
 
@@ -144,9 +145,6 @@ app.post('/novaCategoria', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.render('index.ejs')
+    res.sendfile('views/index.html')
 })
 
-app.get('/carregarTarefas', (req, res) => {
-    res.redirect('back')
-})
