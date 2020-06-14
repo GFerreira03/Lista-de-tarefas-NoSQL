@@ -75,8 +75,7 @@ app.post('/logar', (req, res) => {
 //Logout
 app.post('/deslogar', (req, res) => {
     if (usuarioLogado = true) {
-        usuario = null,
-            res.render('index.ejs')
+        res.render('index.ejs')
     }
 })
 
