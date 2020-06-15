@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+
 //Schemas
 const user = require('./user-model');
 const task = require('./task-model');
@@ -20,8 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.engine('html', require('ejs').renderFile);
 //Estabelecendo parâmetros pra conectar
-var porta = 8000;
-var url = "mongodb+srv://genericUser:123456789abc@cluster0-eian9.gcp.mongodb.net/listadetarefas?retryWrites=true&w=majority"
+var porta = process.env.PORT || 8000;
+var url = process.env.MONGO_URL || "mongodb+srv://genericUser:123456789abc@cluster0-eian9.gcp.mongodb.net/listadetarefas?retryWrites=true&w=majority"
 
 //Conexão
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }).then(client => {
